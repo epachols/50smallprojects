@@ -1,0 +1,20 @@
+html, body {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(251, 226, 208);
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.displayWrapper {
+    width: 50%;
+    height: 50%;
+}
+.displayWrapper h2 {
+    text-align: center;
+}
