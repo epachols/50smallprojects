@@ -47,6 +47,8 @@ btn.addEventListener("click", () => {
   if (remChars < 140 && remChars > 0) {
     let tweetContent = string.value;
     newTweet(tweetContent);
+    string.value = "";
+    remChars = 140;
   } else {
     alert("please tweet between 0 and 140 characters");
   }
