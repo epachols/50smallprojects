@@ -1,0 +1,215 @@
+// FIREFLIES
+// ====================
+
+// VARIABLES
+
+$black: #333;
+$pale: #d2e1dd;
+
+$font-stack: Verdana, monospace;
+// MIXINS
+
+// STYLES
+
+html,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  background-color: $black;
+  color: $pale;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.background {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.foreground {
+  display: block;
+  position: absolute;
+}
+
+.child {
+  height: 20em;
+  bottom: 0;
+  left: 20em;
+  z-index: 5;
+
+  .childImg {
+    height: 100%;
+    width: 100%;
+  }
+
+  @media only screen and (max-height: 400px) {
+    height: 75vh;
+    left: 20em;
+  }
+}
+
+.tree {
+  height: 200vh;
+  bottom: -8vh;
+  right: -35em;
+
+  @media only screen and (max-height: 670px) {
+    bottom: -15vh;
+  }
+}
+
+// single firefly for child's hand (doesn't move)
+.handheldFirefly {
+  width: 2.5em;
+  height: 2.5em;
+  position: absolute;
+  right: 2.5em;
+  top: 7em;
+  mix-blend-mode: screen;
+  border-radius: 50%;
+  background-image: radial-gradient(
+    hsl(51, 100%, 51%),
+    hsl(51, 100%, 66%) 10%,
+    hsla(180, 100%, 80%, 0) 56%
+  );
+  z-index: 100;
+  // animation & duration
+
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    7% {
+      opacity: 0.1;
+    }
+    13% {
+      opacity: 1;
+    }
+    19% {
+      opacity: 0.1;
+    }
+    95% {
+      opacity: 0.1;
+    }
+  }
+
+  animation: blink 5s forwards infinite;
+
+  @media only screen and (max-height: 400px) {
+    right: 1vh;
+    top: 20vh;
+  }
+}
+
+// programmatically animating ~100 more;
+.circle-container {
+  $particleNum: 100;
+  $particleColor: hsl(52, 100%, 62%);
+
+  position: absolute;
+  transform: translateY(-10vh);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+  .circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    mix-blend-mode: screen;
+    background-image: radial-gradient(
+      hsl(51, 100%, 62%),
+      hsl(51, 100%, 66%) 10%,
+      hsla(180, 100%, 80%, 0) 56%
+    );
+
+    animation: fadein-frames 6s infinite, scale-frames 2s infinite;
+
+    @keyframes fadein-frames {
+      0% {
+        opacity: 0;
+      }
+
+      15% {
+        opacity: 1;
+      }
+
+      20% {
+        opacity: 0;
+      }
+
+      30% {
+        opacity: 1;
+      }
+
+      35% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes scale-frames {
+      0% {
+        transform: scale3d(0.4, 0.4, 1);
+      }
+
+      50% {
+        transform: scale3d(3, 3, 1);
+      }
+
+      100% {
+        transform: scale3d(0.4, 0.4, 1);
+      }
+    }
+  }
+
+  $particleBaseSize: 8;
+
+  @for $i from 1 through $particleNum {
+    &:nth-child(#{$i}) {
+      $circleSize: random($particleBaseSize);
+      width: $circleSize + px;
+      height: $circleSize + px;
+
+      $startPositionY: random(10) + 100;
+      $framesName: "move-frames-" + $i;
+      $moveDuration: 28000 + random(9000) + ms;
+
+      animation-name: #{$framesName};
+      animation-duration: $moveDuration;
+
+      @keyframes #{$framesName} {
+        from {
+          transform: translate3d(
+            #{random(100) + vw},
+            #{$startPositionY + vh},
+            0
+          );
+        }
+
+        to {
+          transform: translate3d(
+            #{random(100) + vw},
+            #{- $startPositionY - random(30) + vh},
+            0
+          );
+        }
+      }
+    }
+  }
+}
