@@ -1,0 +1,121 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  display: grid;
+  place-content: center;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(20, 18, 18);
+}
+.tv {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("./tvscreen.png");
+  background-size: cover;
+  background-position: center;
+  z-index: 10;
+}
+.glitch-container {
+  position: absolute;
+  top: 15%;
+  left: 30%;
+  padding: 8%;
+  font-family: "Coda Caption", sans-serif;
+  text-align: center;
+  width: 50vw;
+  height: 60vh;
+  overflow: hidden;
+  display: grid;
+  place-content: center;
+  z-index: 1;
+  font-size: 3.5vw;
+  background-color: rgba(47, 47, 47, 0.183);
+}
+
+@media only screen and (max-width: 400px) {
+  .glitch-container {
+    width: 100vw;
+    top: 15%;
+    left: 5%;
+  }
+  .glitch {
+    width: 90vw;
+    font-size: 8vw;
+  }
+}
+.glitch {
+  color: rgb(106, 219, 75);
+  position: relative;
+  animation: spaz 6s 5s infinite;
+
+  &:before {
+    content: attr(data-text);
+    position: absolute;
+    left: -1px;
+    text-shadow: -2px 0 rgb(122, 29, 110);
+    overflow: hidden;
+    top: 0;
+    animation: static-1 2s 0.08s linear infinite alternate,
+      spaz 5s 5.05s infinite;
+  }
+  &:after {
+    content: attr(data-text);
+    position: absolute;
+    left: 1px;
+    top: 0;
+    text-shadow: 1px 0 rgba(231, 234, 154, 0.614);
+    overflow: hidden;
+    animation: static-2 2s 0.05s linear infinite alternate, spaz 5s 5s infinite;
+    z-index: inherit;
+  }
+}
+
+.glow {
+  @extend .glitch;
+  text-shadow: 50px 50px 200px rgb(155, 186, 150);
+  color: transparent;
+  position: absolute;
+  top: 0;
+}
+
+@keyframes spaz {
+  2% {
+    transform: rotateX(10deg) skewX(87deg);
+  }
+  3% {
+    transform: rotateX(0deg);
+  }
+}
+
+@keyframes static-1 {
+  $steps: 50;
+  @for $i from 40 through $steps {
+    #{percentage($i*(1/$steps))} {
+      $top: random(100);
+      $bottom: random(101-$top);
+      clip-path: inset(#{$top}px 0 #{$bottom} 0);
+      left: #{$top * 0.01}px;
+    }
+  }
+}
+
+@keyframes static-2 {
+  $steps: 50;
+  @for $i from 40 through $steps {
+    #{percentage($i*(1/$steps))} {
+      $top: random(100);
+      $bottom: random(101 - $top);
+      $left: random(100);
+      $right: random(101-$left);
+      clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+    }
+  }
+}
