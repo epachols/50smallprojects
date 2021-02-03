@@ -1,0 +1,42 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.8s;
+}
+html,
+body {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: lightseagreen;
+}
+.container {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  place-content: center;
+}
+button {
+  width: 200px;
+  font-size: 30px;
+  padding: 16px;
+  border-radius: 15px;
+}
+button:focus {
+  outline: none;
+}
+
+/* The @media (hover: hover) query checks if 
+// hover is enabled on your device
+// this handles larger touchscreens/surfaces as 
+// well as mobile devices.
+*/
+
+@media (hover: hover) {
+  button:hover {
+    background-color: black;
+    color: rgb(211, 189, 189);
+    box-shadow: 0px 3px 30px white;
+  }
+}
