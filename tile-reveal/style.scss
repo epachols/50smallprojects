@@ -1,7 +1,129 @@
+@mixin iveBeenSkewered {
+  @for $i from 1 through 6 {
+    &:nth-of-type(#{$i}) {
+      transform: skew(35deg);
+      margin-left: -30%;
+      animation: skewer 0.7s 2s linear forwards,
+        slideRight1 0.7s 4s linear forwards;
+    }
+  }
+  @for $i from 7 through 12 {
+    &:nth-of-type(#{$i}) {
+      transform: skew(-35deg);
+      margin-left: -30%;
+      animation: skewer 0.7s 2.7s linear forwards,
+        slideLeft2 0.7s 3.4s linear forwards;
+    }
+  }
+  @for $i from 13 through 18 {
+    &:nth-of-type(#{$i}) {
+      transform: skew(35deg);
+      margin-left: -30%;
+      animation: 0.7s skewer 4s linear forwards,
+        slideRight1 0.7s 3s linear forwards;
+    }
+  }
+  @for $i from 19 through 24 {
+    &:nth-of-type(#{$i}) {
+      transform: skew(-35deg);
+      margin-left: -30%;
+      animation: skewer 0.7s 2.7s linear forwards;
+    }
+  }
+  @for $i from 25 through 30 {
+    &:nth-of-type(#{$i}) {
+      transform: skew(35deg);
+      margin-left: -30%;
+      animation: skewer 0.7s 3.4s linear forwards,
+        slideLeft1 0.7s 2.7s linear forwards;
+    }
+  }
+  @for $i from 31 through 36 {
+    &:nth-of-type(#{$i}) {
+      transform: skew(-35deg);
+      margin-left: -30%;
+      animation: skewer 0.7s 2s linear forwards,
+        slideRight2 0.7s 3.2s linear forwards;
+    }
+  }
+  &:nth-of-type(even) {
+    filter: brightness(4);
+  }
+  &:nth-of-type(odd) {
+    filter: hue-rotate(180deg);
+  }
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(31, 31, 31);
+}
+.frame {
+  position: relative;
+  width: 85vw;
+  height: 85vh;
+  margin: 7.5vh auto;
+  overflow: hidden;
+  background: transparent;
+  border-radius: 10px;
+}
 .checkerBoard {
+  width: 120%;
+  height: 110%;
+  margin: -4% auto;
   display: grid;
+
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(6, 1fr);
+  column-gap: 2%;
+
+  background-image: url("hoot.jpeg");
+  // background-image: url("foxy.jpeg");
+  background-size: cover;
+  background-position: center;
+
+  overflow: hidden;
+}
+
+.tile {
+  // background-color: rgba(3, 186, 214, 0.988);
+  background-color: rgba(201, 33, 33, 0.988);
+  width: 114%;
+  height: 101%;
+  transition: opacity 1s ease-in;
+
+  @include iveBeenSkewered;
+}
+
+// animations
+@keyframes skewer {
+  100% {
+    transform: skew(0);
+  }
+}
+@keyframes slideLeft1 {
+  100% {
+    transform: translate(-100%);
+  }
+}
+@keyframes slideLeft2 {
+  100% {
+    transform: translate(-198%);
+  }
+}
+@keyframes slideRight1 {
+  100% {
+    transform: translateX(100%);
+  }
+}
+@keyframes slideRight2 {
+  100% {
+    transform: translateX(198%);
+  }
 }
 
 // https://css-tricks.com/checkerboard-reveal/

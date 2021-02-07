@@ -1,7 +1,253 @@
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #1f1f1f;
+}
+
+.frame {
+  position: relative;
+  width: 85vw;
+  height: 85vh;
+  margin: 7.5vh auto;
+  overflow: hidden;
+  background: transparent;
+  border-radius: 10px;
+}
+
 .checkerBoard {
+  width: 120%;
+  height: 110%;
+  margin: -4% auto;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(6, 1fr);
+  column-gap: 2%;
+  background-image: url("hoot.jpeg");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.tile {
+  background-color: rgba(201, 33, 33, 0.988);
+  width: 114%;
+  height: 101%;
+  transition: opacity 1s ease-in;
+}
+.tile:nth-of-type(1) {
+  transform: skew(35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 2s linear forwards, slideRight1 0.7s 4s linear forwards;
+}
+.tile:nth-of-type(2) {
+  transform: skew(35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 2s linear forwards, slideRight1 0.7s 4s linear forwards;
+}
+.tile:nth-of-type(3) {
+  transform: skew(35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 2s linear forwards, slideRight1 0.7s 4s linear forwards;
+}
+.tile:nth-of-type(4) {
+  transform: skew(35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 2s linear forwards, slideRight1 0.7s 4s linear forwards;
+}
+.tile:nth-of-type(5) {
+  transform: skew(35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 2s linear forwards, slideRight1 0.7s 4s linear forwards;
+}
+.tile:nth-of-type(6) {
+  transform: skew(35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 2s linear forwards, slideRight1 0.7s 4s linear forwards;
+}
+.tile:nth-of-type(7) {
+  transform: skew(-35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 2.7s linear forwards, slideLeft2 0.7s 3.4s linear forwards;
+}
+.tile:nth-of-type(8) {
+  transform: skew(-35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 2.7s linear forwards, slideLeft2 0.7s 3.4s linear forwards;
+}
+.tile:nth-of-type(9) {
+  transform: skew(-35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 2.7s linear forwards, slideLeft2 0.7s 3.4s linear forwards;
+}
+.tile:nth-of-type(10) {
+  transform: skew(-35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 2.7s linear forwards, slideLeft2 0.7s 3.4s linear forwards;
+}
+.tile:nth-of-type(11) {
+  transform: skew(-35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 2.7s linear forwards, slideLeft2 0.7s 3.4s linear forwards;
+}
+.tile:nth-of-type(12) {
+  transform: skew(-35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 2.7s linear forwards, slideLeft2 0.7s 3.4s linear forwards;
+}
+.tile:nth-of-type(13) {
+  transform: skew(35deg);
+  margin-left: -30%;
+  animation: 0.7s skewer 4s linear forwards, slideRight1 0.7s 3s linear forwards;
+}
+.tile:nth-of-type(14) {
+  transform: skew(35deg);
+  margin-left: -30%;
+  animation: 0.7s skewer 4s linear forwards, slideRight1 0.7s 3s linear forwards;
+}
+.tile:nth-of-type(15) {
+  transform: skew(35deg);
+  margin-left: -30%;
+  animation: 0.7s skewer 4s linear forwards, slideRight1 0.7s 3s linear forwards;
+}
+.tile:nth-of-type(16) {
+  transform: skew(35deg);
+  margin-left: -30%;
+  animation: 0.7s skewer 4s linear forwards, slideRight1 0.7s 3s linear forwards;
+}
+.tile:nth-of-type(17) {
+  transform: skew(35deg);
+  margin-left: -30%;
+  animation: 0.7s skewer 4s linear forwards, slideRight1 0.7s 3s linear forwards;
+}
+.tile:nth-of-type(18) {
+  transform: skew(35deg);
+  margin-left: -30%;
+  animation: 0.7s skewer 4s linear forwards, slideRight1 0.7s 3s linear forwards;
+}
+.tile:nth-of-type(19) {
+  transform: skew(-35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 2.7s linear forwards;
+}
+.tile:nth-of-type(20) {
+  transform: skew(-35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 2.7s linear forwards;
+}
+.tile:nth-of-type(21) {
+  transform: skew(-35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 2.7s linear forwards;
+}
+.tile:nth-of-type(22) {
+  transform: skew(-35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 2.7s linear forwards;
+}
+.tile:nth-of-type(23) {
+  transform: skew(-35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 2.7s linear forwards;
+}
+.tile:nth-of-type(24) {
+  transform: skew(-35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 2.7s linear forwards;
+}
+.tile:nth-of-type(25) {
+  transform: skew(35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 3.4s linear forwards, slideLeft1 0.7s 2.7s linear forwards;
+}
+.tile:nth-of-type(26) {
+  transform: skew(35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 3.4s linear forwards, slideLeft1 0.7s 2.7s linear forwards;
+}
+.tile:nth-of-type(27) {
+  transform: skew(35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 3.4s linear forwards, slideLeft1 0.7s 2.7s linear forwards;
+}
+.tile:nth-of-type(28) {
+  transform: skew(35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 3.4s linear forwards, slideLeft1 0.7s 2.7s linear forwards;
+}
+.tile:nth-of-type(29) {
+  transform: skew(35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 3.4s linear forwards, slideLeft1 0.7s 2.7s linear forwards;
+}
+.tile:nth-of-type(30) {
+  transform: skew(35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 3.4s linear forwards, slideLeft1 0.7s 2.7s linear forwards;
+}
+.tile:nth-of-type(31) {
+  transform: skew(-35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 2s linear forwards, slideRight2 0.7s 3.2s linear forwards;
+}
+.tile:nth-of-type(32) {
+  transform: skew(-35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 2s linear forwards, slideRight2 0.7s 3.2s linear forwards;
+}
+.tile:nth-of-type(33) {
+  transform: skew(-35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 2s linear forwards, slideRight2 0.7s 3.2s linear forwards;
+}
+.tile:nth-of-type(34) {
+  transform: skew(-35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 2s linear forwards, slideRight2 0.7s 3.2s linear forwards;
+}
+.tile:nth-of-type(35) {
+  transform: skew(-35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 2s linear forwards, slideRight2 0.7s 3.2s linear forwards;
+}
+.tile:nth-of-type(36) {
+  transform: skew(-35deg);
+  margin-left: -30%;
+  animation: skewer 0.7s 2s linear forwards, slideRight2 0.7s 3.2s linear forwards;
+}
+.tile:nth-of-type(even) {
+  filter: brightness(4);
+}
+.tile:nth-of-type(odd) {
+  filter: hue-rotate(180deg);
+}
+
+@keyframes skewer {
+  100% {
+    transform: skew(0);
+  }
+}
+@keyframes slideLeft1 {
+  100% {
+    transform: translate(-100%);
+  }
+}
+@keyframes slideLeft2 {
+  100% {
+    transform: translate(-198%);
+  }
+}
+@keyframes slideRight1 {
+  100% {
+    transform: translateX(100%);
+  }
+}
+@keyframes slideRight2 {
+  100% {
+    transform: translateX(198%);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
