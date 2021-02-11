@@ -1,0 +1,38 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+  background: #dda1a1;
+  text-align: center;
+}
+.btnCont {
+  width: 100vw;
+  margin: -10px auto 15px auto;
+}
+.btnCont > button {
+  width: 125px;
+  height: 40px;
+  background-color: rgb(77, 40, 158);
+  color: rgb(255, 245, 212);
+  font-size: 20px;
+  border-radius: 5px;
+  flex-wrap: wrap;
+}
+.imgCont {
+  width: 80%;
+  height: 70vh;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 10px;
+  background-position: center;
+  background-size: cover;
+}
+.imgCont p {
+  font-size: 28px;
+  margin: 75px auto;
+}
+
+*:focus {
+  outline: none;
+}
