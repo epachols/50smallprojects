@@ -1,3 +1,9 @@
+// get day of year from a date
+const dayOfYear = (date) =>
+  Math.floor((date - new Date(date.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
+
+dayOfYear(new Date()); // 272
+
 // count the weekdays between two dates.
 const countWeekDaysBetween = (startDate, endDate) =>
   Array.from({ length: (endDate - startDate) / (1000 * 3600 * 24) }).reduce(
@@ -18,3 +24,9 @@ const generateRandomColor = () =>
   "#" + Math.floor(Math.random() * 16777215).toString(16);
 //EXAMPLE
 document.getElementsByTagName("body")[0].style.color = generateRandomColor();
+
+// remove falsy values from an array
+const compact = (arr) => arr.filter(Boolean);
+
+compact([0, 1, false, 2, "", 3, "a", "e" * 23, NaN, "s", 34]);
+// [ 1, 2, 3, 'a', 's', 34 ]
