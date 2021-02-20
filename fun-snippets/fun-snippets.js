@@ -19,14 +19,8 @@ const countWeekDaysBetween = (startDate, endDate) =>
 countWeekDaysBetween(new Date(2021, 0, 10), new Date(2021, 0, 20)); // 7
 countWeekDaysBetween(new Date(2021, 1, 10), new Date(2021, 2, 18)); // 26
 
-// generates a random colour in hex format
-const generateRandomColor = () =>
-  "#" + Math.floor(Math.random() * 16777215).toString(16);
-//EXAMPLE
-document.getElementsByTagName("body")[0].style.color = generateRandomColor();
-
 // remove falsy values from an array
-const compact = (arr) => arr.filter(Boolean);
+const GimmeTheTruthy = (arr) => arr.filter(Boolean);
 
-compact([0, 1, false, 2, "", 3, "a", "e" * 23, NaN, "s", 34]);
+GimmeTheTruthy([0, 1, false, 2, "", NaN, 3, "a", "s", 34]);
 // [ 1, 2, 3, 'a', 's', 34 ]
